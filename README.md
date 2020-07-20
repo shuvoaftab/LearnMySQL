@@ -1,0 +1,2 @@
+# LearnMySQL
+Beginning of MySQL

@@ -266,19 +266,549 @@ FROM customers
 WHERE phone NOT LIKE '%9'
 
 
-#35 /*	^ Start of the string*/
+#36 /*	^ Start of the string*/
 USE sql_store;
 
 SELECT *
 FROM customers
 WHERE last_name REGEXP '^field'
 
-#35 /*	 $ End of the string*/
+#37 /*	 $ End of the string*/
 USE sql_store;
 
 SELECT *
 FROM customers
-WHERE last_name REGEXP '^field'
+WHERE last_name REGEXP 'field$'
+
+
+#38 
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP 'field|mac'
+
+
+#39 
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP 'field|mac|rose'
+
+
+#40 
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP '^field|mac|rose'
+
+#41 /*	ge ie me	*/
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP '[gim]e'
+
+
+#42 /*	eg ei em	*/
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP 'e[gim]'
+
+#43
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP '[a-z]e'
+
+#44
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE 	first_name  IN ('ELKA', 'AMBUR')
+--WHERE 	first_name  REGEXP 'elka|ambur'
+
+#45
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name  REGEXP 'EY$|ON$'
+
+#46
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name  REGEXP '^MY|SE'
+
+#47
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP 'br|bu'
+
+
+#48
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE phone IS NULL
+
+#49
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE phone IS NOT NULL
+
+#50
+USE sql_store;
+
+SELECT *
+FROM orders
+WHERE shipped_date IS NULL
+
+#51
+USE sql_store;
+
+SELECT *
+FROM customers
+ORDER BY first_name DESC
+
+#
+USE sql_store;
+
+SELECT *
+FROM customers
+ORDER BY state, first_name 
+
+#
+USE sql_store;
+
+SELECT *
+FROM customers
+ORDER BY state DESC, first_name DESC
+
+#
+USE sql_store;
+
+SELECT first_name, last_name, 10 AS points
+FROM customers
+ORDER BY points, first_name
+
+#
+USE sql_store;
+
+SELECT *
+FROM order_items
+WHERE order_id = 2
+ORDER BY (quantity * unit_price) DESC
+
+#
+USE sql_store;
+
+SELECT *, (quantity * unit_price) AS total_price
+FROM order_items
+WHERE order_id = 2
+ORDER BY (quantity * unit_price) DESC
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

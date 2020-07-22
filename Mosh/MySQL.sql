@@ -629,37 +629,116 @@ LEFT JOIN order_items oi
 ORDER BY p.product_id
 
 #
+USE sql_store;
 
-
-#
-
-
-#
-
-
-#
-
-
-#
-
-
-#
-
+SELECT 	
+		c.customer_id,
+        c.first_name,
+        o.order_id,
+		sh.name AS shipper
+FROM  customers c
+LEFT JOIN orders o
+	ON c.customer_id = o.customer_id
+LEFT JOIN shippers sh
+	ON o.shipper_id = sh.shipper_id
+ORDER BY c.customer_id
 
 #
+USE sql_store;
 
+SELECT 	
+		o.order_date,
+        o.order_id,
+        c.first_name,
+        sh.name AS shipper,
+        st.name AS status
+FROM  orders o
+LEFT JOIN customers c
+	ON o.customer_id = c.customer_id
+LEFT JOIN shippers sh
+	ON o.shipper_id = sh.shipper_id
+LEFT JOIN order_statuses st
+	ON o.status = st.order_status_id
+ORDER BY o.order_id
 
 #
+USE sql_hr;
 
+SELECT 	
+		e.employee_id,
+        e.first_name,
+        m.first_name AS manager
+FROM  employees e
+LEFT JOIN employees m
+	ON e.reports_to = m.employee_id
 
 #
+USE sql_store;
 
+SELECT 	
+        o.order_id,
+        c.first_name,
+        sh.name AS shipper
+FROM  orders o
+JOIN customers c
+	USING (customer_id)
+LEFT JOIN shippers sh
+	USING (shipper_id)
 
 #
+USE sql_store;
 
+SELECT 	*
+FROM order_items oi
+JOIN order_item_notes oin
+	USING (order_id, product_id)
 
 #
+USE sql_invoicing;
 
+SELECT 	p.date,
+		c.name AS client,
+        p.amount,
+        pm.name
+FROM payments p
+JOIN clients c USING (client_id)
+JOIN payment_methods pm
+	ON p.payment_method = pm.payment_method_id
+
+#
+USE sql_store;
+
+SELECT	o.order_id,
+		c.first_name
+FROM orders o
+NATURAL JOIN customers c
+
+#
+USE sql_store;
+
+SELECT	c.first_name,
+		p.name AS product
+FROM customers c
+CROSS JOIN products p
+ORDER BY c.first_name
+
+#
+USE sql_store;
+
+SELECT	*
+FROM shippers s
+CROSS JOIN products p
+ORDER BY s.name
+
+#
+USE sql_store;
+
+SELECT	*
+FROM shippers s, products p
+ORDER BY s.name
+
+#
+2.18
 
 #
 
